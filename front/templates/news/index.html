@@ -1,0 +1,119 @@
+{% extends 'base/front_base.html' %}
+
+{% block title %}
+    小饭桌首页
+{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/news/index.min.css' %}">
+    <script src="{% static 'js/index.min.js' %}"></script>
+{% endblock %}
+
+{% block main %}
+    <div class="main">
+        <div class="wrapper">
+            <div class="main-content-wrapper">
+                <div class="banner-group" id="banner-group">
+                    <ul class="banner-ul" id="banner-ul">
+                        <li>
+                            <a>
+                                <img src="https://static-image.xfz.cn/1583748952_414.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <img src="https://static-image.xfz.cn/1583748952_414.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <img src="https://static-image.xfz.cn/1583748952_414.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <img src="https://static-image.xfz.cn/1583748952_414.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a>
+                                <img src="https://static-image.xfz.cn/1583748952_414.png">
+                            </a>
+                        </li>
+                    </ul>
+                    <span class="arrow left-arrow">﹤</span>
+                    <span class="arrow right-arrow">﹥</span>
+                    <div class="page-control-group">
+                        <ul class="page-control">
+                        </ul>
+                    </div>
+                </div>
+                <div class="list-outer-group">
+                    <ul class="list-tab">
+                        <li class="active"><a href="#">最新资讯</a></li>
+                        <li><a href="#">热点新闻</a></li>
+                        <li><a href="#">深度报道</a></li>
+                        <li><a href="#">干货分享</a></li>
+                        <li><a href="#">投资人说</a></li>
+                    </ul>
+                    <ul class="list-inner-group">
+                        <li>
+                            <div class="thumbnail-group">
+                                <a>
+                                    <img src="https://static-image.xfz.cn/1584331172_966.jpg-website.news.list">
+                                </a>
+                            </div>
+                            <div class="news-group">
+                                <p class="title"><a href="#">梧桐树资本董帅：重新理解在线教育行业中的变与不变</a></p>
+                                <p class="desc">K12 教育的核心在于续费，职业教育的核心在于扩科。</p>
+                                <p class="more">
+                                    <span class="category">教育投资</span>
+                                    <span class="pub-time">1小时前</span>
+                                    <span class="author">阳</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="thumbnail-group">
+                                <a>
+                                    <img src="https://static-image.xfz.cn/1584331172_966.jpg-website.news.list">
+                                </a>
+                            </div>
+                            <div class="news-group">
+                                <p class="title"><a href="#">梧桐树资本董帅：重新理解在线教育行业中的变与不变</a></p>
+                                <p class="desc">K12 教育的核心在于续费，职业教育的核心在于扩科。</p>
+                                <p class="more">
+                                    <span class="category">教育投资</span>
+                                    <span class="pub-time">1小时前</span>
+                                    <span class="author">阳</span>
+                                </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="thumbnail-group">
+                                <a>
+                                    <img src="https://static-image.xfz.cn/1584331172_966.jpg-website.news.list">
+                                </a>
+                            </div>
+                            <div class="news-group">
+                                <p class="title"><a href="#">梧桐树资本董帅：重新理解在线教育行业中的变与不变</a></p>
+                                <p class="desc">K12 教育的核心在于续费，职业教育的核心在于扩科。</p>
+                                <p class="more">
+                                    <span class="category">教育投资</span>
+                                    <span class="pub-time">1小时前</span>
+                                    <span class="author">阳</span>
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="load-more-group">
+                        <button class="load-more">查看更多</button>
+                    </div>
+                </div>
+
+            </div>
+            {% include 'common/sidebar.html' %}
+        </div>
+    </div>
+{% endblock %}
+
+</html>
