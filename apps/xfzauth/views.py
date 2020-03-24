@@ -57,4 +57,4 @@ def img_captcha(request):
 def sms_captcha(request):
     telephone = request.Get.get('telephone')
     code = Captcha.gene_text()
-    
+    return HttpResponse("success")

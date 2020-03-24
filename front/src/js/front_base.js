@@ -29,6 +29,7 @@ Auth.prototype.run = function () {
     self.listenSwitchEvent();
     self.listenSigninEvent();
     self.listenImgCaptchaEvent();
+    self.listenSmsCaptchaEvent();
 };
 
 Auth.prototype.showEvent = function () {
@@ -48,11 +49,11 @@ Auth.prototype.listenShowHideEvent = function () {
     var closeBtn = $('.close-btn');
     signinBtn.click(function () {
         self.showEvent();
-        self.scrollWrapper.css({ 'left': 0 });
+        self.scrollWrapper.css({'left': 0});
     });
     signupBtn.click(function () {
         self.showEvent();
-        self.scrollWrapper.css({ 'left': -400 });
+        self.scrollWrapper.css({'left': -400});
     });
     closeBtn.click(function () {
         self.hideEvent();
@@ -60,12 +61,54 @@ Auth.prototype.listenShowHideEvent = function () {
 };
 
 
-
-
 Auth.prototype.listenImgCaptchaEvent = function () {
     var ImgCaptcha = $('.img-captcha');
     ImgCaptcha.click(function () {
         ImgCaptcha.attr("src", "/account/img_captcha/" + "?random=" + Math.random())
+    });
+};
+
+Auth.prototype.smsSuccessEvent = function () {
+    var self = this;
+    messageBox.showSuccess('短信验证码发送成功');
+    smsCaptcha.addClass('disabled');
+    var count = 60;
+    smsCaptcha.unbind("click");
+    var timer = setInterval(function () {
+        smsCaptcha.text(count + 's')
+        count--;
+        if (count <= 0) {
+            clearInterval(timer);
+            smsCaptcha.removeClass('disabled');
+            smsCaptcha.text('发送验证码');
+            self.listenSmsCaptchaEvent();
+        }
+    }, 1000);
+};
+
+Auth.prototype.listenSmsCaptchaEvent = function () {
+    var self = this;
+    var smsCaptcha = $(".sms-captcha-btn");
+    var telephoneInput = $(".signup-group input[name='telephone']");
+    smsCaptcha.click(function () {
+        var telephone = telephoneInput.val();
+        if (!telephone) {
+            messageBox.showInfo('请输入手机号码');
+        }
+        xfzajax.get({
+            'url': '/account/sms_captcha/',
+            'data': {
+                'telephone': telephone
+            },
+            'success': function (result) {
+                if (result['code'] === 200) {
+                    self.smsSuccessEvent();
+                }
+            },
+            'fail': function (error) {
+
+            }
+        })
     });
 };
 
