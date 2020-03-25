@@ -6,8 +6,10 @@ from django.views.decorators.http import require_POST
 from utils.captcha.xfzcaptcha import Captcha
 from io import BytesIO
 from utils import restful
-from .forms import LoginForm
+from .forms import LoginForm, RegisterForm
 from django.http import HttpResponse
+from django.core.cache import cache
+from .models import User
 
 
 @require_POST
@@ -41,6 +43,22 @@ def logout_view(request):
     return redirect(reverse('index'))
 
 
+@require_POST
+def register(request):
+    form = RegisterForm(request.POST)
+    if form.is_valid():
+        telephone = form.cleaned_data.get('telephone')
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password1')
+        user = User.object.create_user(telephone=telephone, username=username,
+                                       password=password)
+        user.save()
+        login(request, user)
+        return restful.ok()
+    else:
+        return restful.params_error(message=form.get_errors())
+
+
 def img_captcha(request):
     text, image = Captcha.gene_code()
     out = BytesIO()
@@ -51,10 +69,21 @@ def img_captcha(request):
     response.write(out.read())
     response['Content-length'] = out.tell()
 
+    cache.set(text.lower(), text.lower(), 5 * 60)
+
     return response
 
 
 def sms_captcha(request):
-    telephone = request.Get.get('telephone')
+    telephone = request.GET.get('telephone')
     code = Captcha.gene_text()
+    print(code)
+    cache.set(telephone, code.lower(), 5 * 60)
+    return restful.ok()
+
+
+def cache_test(request):
+    cache.set('username', 'lichy', 60)
+    result = cache.get('username')
+    print(result)
     return HttpResponse("success")

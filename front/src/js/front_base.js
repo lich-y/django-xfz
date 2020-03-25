@@ -21,6 +21,7 @@ function Auth() {
     var self = this;
     self.maskWrapper = $(".mask-wrapper");
     self.scrollWrapper = $(".scroll-wrapper");
+    self.smsCaptcha = $(".sms-captcha-btn");
 }
 
 Auth.prototype.run = function () {
@@ -70,17 +71,17 @@ Auth.prototype.listenImgCaptchaEvent = function () {
 
 Auth.prototype.smsSuccessEvent = function () {
     var self = this;
-    messageBox.showSuccess('短信验证码发送成功');
-    smsCaptcha.addClass('disabled');
+    messageBox.showSuccess('短信验证码发送成功！');
+    self.smsCaptcha.addClass('disabled');
     var count = 60;
-    smsCaptcha.unbind("click");
+    self.smsCaptcha.unbind('click');
     var timer = setInterval(function () {
-        smsCaptcha.text(count + 's')
-        count--;
+        self.smsCaptcha.text(count + 's');
+        count -= 1;
         if (count <= 0) {
             clearInterval(timer);
-            smsCaptcha.removeClass('disabled');
-            smsCaptcha.text('发送验证码');
+            self.smsCaptcha.removeClass('disabled');
+            self.smsCaptcha.text('发送验证码');
             self.listenSmsCaptchaEvent();
         }
     }, 1000);
@@ -93,7 +94,7 @@ Auth.prototype.listenSmsCaptchaEvent = function () {
     smsCaptcha.click(function () {
         var telephone = telephoneInput.val();
         if (!telephone) {
-            messageBox.showInfo('请输入手机号码');
+            messageBox.showInfo('请输入手机号码！');
         }
         xfzajax.get({
             'url': '/account/sms_captcha/',
@@ -101,14 +102,14 @@ Auth.prototype.listenSmsCaptchaEvent = function () {
                 'telephone': telephone
             },
             'success': function (result) {
-                if (result['code'] === 200) {
+                if (result['code'] == 200) {
                     self.smsSuccessEvent();
                 }
             },
             'fail': function (error) {
-
+                console.log(error);
             }
-        })
+        });
     });
 };
 
@@ -173,6 +174,21 @@ Auth.prototype.listenSigninEvent = function () {
             }
         })
     })
+};
+
+Auth.prototype.listenSignupEvent = function () {
+    var signupGroup = $('.signup-group');
+    var submitBtn = signupGroup.find('.submit-btn');
+    submitBtn.click(function (event) {
+        event.preventDefault();
+        var telephoneInput = signupGroup.find("input[name='telephone']");
+        var usernameInput = signupGroup.find("input[name='username']");
+        var imgCaptchaInput = signupGroup.find("input[name='imgCaptcha']");
+        var telephoneInput = signupGroup.find("input[name='telephone']");
+        var telephoneInput = signupGroup.find("input[name='telephone']");
+        var telephoneInput = signupGroup.find("input[name='telephone']");
+
+    });
 };
 
 $(function () {

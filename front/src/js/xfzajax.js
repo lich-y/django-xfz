@@ -38,7 +38,6 @@ var xfzajax = {
             } else {
                 var messageObject = result['message'];
                 if (typeof messageObject == 'string' || messageObject.constructor == String) {
-                    console.log(messageObject)
                     window.messageBox.showError(messageObject);
                 } else {
                     // {"password":['密码最大长度不能超过20为！','xxx'],"telephone":['xx','x']}
@@ -46,7 +45,6 @@ var xfzajax = {
                         var messages = messageObject[key];
                         var message = messages[0];
                         window.messageBox.showError(message);
-                        console.log(message);
                     }
                 }
                 if (success) {

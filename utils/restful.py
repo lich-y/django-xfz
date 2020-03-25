@@ -1,4 +1,3 @@
-#! /usr/bin/python
 from django.http import JsonResponse
 
 
