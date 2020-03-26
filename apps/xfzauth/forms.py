@@ -45,4 +45,4 @@ class RegisterForm(forms.Form, FormMixin):
 
         exist = User.object.filter(telephone=telephone)
         if exist:
-            forms.ValidationError("该手机号码已经被注册！")
+            raise forms.ValidationError("该手机号码已经被注册！")

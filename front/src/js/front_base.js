@@ -1,5 +1,4 @@
 function FrontBase() {
-
 }
 
 FrontBase.prototype.run = function () {
@@ -8,8 +7,8 @@ FrontBase.prototype.run = function () {
 };
 
 FrontBase.prototype.listenAuthBoxHover = function () {
-    var authBox = $('.auth-box');
-    var userMoreBox = $('.user-more-box');
+    var authBox = $(".auth-box");
+    var userMoreBox = $(".user-more-box");
     authBox.hover(function () {
         userMoreBox.show();
     }, function () {
@@ -17,11 +16,13 @@ FrontBase.prototype.listenAuthBoxHover = function () {
     });
 };
 
+
+// 用来处理登录和注册的
 function Auth() {
     var self = this;
-    self.maskWrapper = $(".mask-wrapper");
+    self.maskWrapper = $('.mask-wrapper');
     self.scrollWrapper = $(".scroll-wrapper");
-    self.smsCaptcha = $(".sms-captcha-btn");
+    self.smsCaptcha = $('.sms-captcha-btn');
 }
 
 Auth.prototype.run = function () {
@@ -31,6 +32,7 @@ Auth.prototype.run = function () {
     self.listenSigninEvent();
     self.listenImgCaptchaEvent();
     self.listenSmsCaptchaEvent();
+    self.listenSignupEvent();
 };
 
 Auth.prototype.showEvent = function () {
@@ -43,37 +45,11 @@ Auth.prototype.hideEvent = function () {
     self.maskWrapper.hide();
 };
 
-Auth.prototype.listenShowHideEvent = function () {
-    var self = this;
-    var signinBtn = $('.signin-btn');
-    var signupBtn = $('.signup-btn');
-    var closeBtn = $('.close-btn');
-    signinBtn.click(function () {
-        self.showEvent();
-        self.scrollWrapper.css({'left': 0});
-    });
-    signupBtn.click(function () {
-        self.showEvent();
-        self.scrollWrapper.css({'left': -400});
-    });
-    closeBtn.click(function () {
-        self.hideEvent();
-    });
-};
-
-
-Auth.prototype.listenImgCaptchaEvent = function () {
-    var ImgCaptcha = $('.img-captcha');
-    ImgCaptcha.click(function () {
-        ImgCaptcha.attr("src", "/account/img_captcha/" + "?random=" + Math.random())
-    });
-};
-
 Auth.prototype.smsSuccessEvent = function () {
     var self = this;
     messageBox.showSuccess('短信验证码发送成功！');
     self.smsCaptcha.addClass('disabled');
-    var count = 60;
+    var count = 10;
     self.smsCaptcha.unbind('click');
     var timer = setInterval(function () {
         self.smsCaptcha.text(count + 's');
@@ -85,6 +61,48 @@ Auth.prototype.smsSuccessEvent = function () {
             self.listenSmsCaptchaEvent();
         }
     }, 1000);
+};
+
+Auth.prototype.listenShowHideEvent = function () {
+    var self = this;
+    var signinBtn = $('.signin-btn');
+    var signupBtn = $('.signup-btn');
+    var closeBtn = $('.close-btn');
+
+    signinBtn.click(function () {
+        self.showEvent();
+        self.scrollWrapper.css({"left": 0});
+    });
+
+    signupBtn.click(function () {
+        self.showEvent();
+        self.scrollWrapper.css({"left": -400});
+    });
+
+    closeBtn.click(function () {
+        self.hideEvent();
+    });
+};
+
+Auth.prototype.listenSwitchEvent = function () {
+    var self = this;
+    var switcher = $(".switch");
+    switcher.click(function () {
+        var currentLeft = self.scrollWrapper.css("left");
+        currentLeft = parseInt(currentLeft);
+        if (currentLeft < 0) {
+            self.scrollWrapper.animate({"left": '0'});
+        } else {
+            self.scrollWrapper.animate({"left": "-400px"});
+        }
+    });
+};
+
+Auth.prototype.listenImgCaptchaEvent = function () {
+    var imgCaptcha = $('.img-captcha');
+    imgCaptcha.click(function () {
+        imgCaptcha.attr("src", "/account/img_captcha/" + "?random=" + Math.random())
+    });
 };
 
 Auth.prototype.listenSmsCaptchaEvent = function () {
@@ -113,28 +131,9 @@ Auth.prototype.listenSmsCaptchaEvent = function () {
     });
 };
 
-Auth.prototype.listenSwitchEvent = function () {
-    var self = this;
-    var switcher = $(".switch");
-    switcher.click(function () {
-        var currentLeft = self.scrollWrapper.css("left");
-        currentLeft = parseInt(currentLeft);
-        if (currentLeft < 0) {
-            self.scrollWrapper.animate({
-                "left": '0'
-            });
-        } else {
-            self.scrollWrapper.animate({
-                "left": "-400px"
-            });
-        }
-    });
-};
-
-
 Auth.prototype.listenSigninEvent = function () {
-    var selt = this;
-    var signinGroup = $(".signin-group");
+    var self = this;
+    var signinGroup = $('.signin-group');
     var telephoneInput = signinGroup.find("input[name='telephone']");
     var passwordInput = signinGroup.find("input[name='password']");
     var rememberInput = signinGroup.find("input[name='remember']");
@@ -153,28 +152,16 @@ Auth.prototype.listenSigninEvent = function () {
                 'remember': remember ? 1 : 0
             },
             'success': function (result) {
-                if (result['code'] == 200) {
-                    selt.hideEvent();
-                    window.location.reload();
-                } else {
-                    var messageObject = result['message'];
-                    if (typeof messageObject == 'string' || messageObject.constructor == String) {
-                        window.messageBox.show(messageObject)
-                    } else {
-                        for (var key in messageObject) {
-                            var messages = messageObject[key];
-                            var message = messages[0];
-                            window.messageBox.show(message);
-                        }
-                    }
-                }
+                self.hideEvent();
+                window.location.reload();
             },
             'fail': function (error) {
                 console.log(error);
             }
-        })
-    })
+        });
+    });
 };
+
 
 Auth.prototype.listenSignupEvent = function () {
     var signupGroup = $('.signup-group');
@@ -183,17 +170,43 @@ Auth.prototype.listenSignupEvent = function () {
         event.preventDefault();
         var telephoneInput = signupGroup.find("input[name='telephone']");
         var usernameInput = signupGroup.find("input[name='username']");
-        var imgCaptchaInput = signupGroup.find("input[name='imgCaptcha']");
-        var telephoneInput = signupGroup.find("input[name='telephone']");
-        var telephoneInput = signupGroup.find("input[name='telephone']");
-        var telephoneInput = signupGroup.find("input[name='telephone']");
+        var imgCaptchaInput = signupGroup.find("input[name='img_captcha']");
+        var password1Input = signupGroup.find("input[name='password1']");
+        var password2Input = signupGroup.find("input[name='password2']");
+        var smsCaptchaInput = signupGroup.find("input[name='sms_captcha']");
 
+        var telephone = telephoneInput.val();
+        var username = usernameInput.val();
+        var img_captcha = imgCaptchaInput.val();
+        var password1 = password1Input.val();
+        var password2 = password2Input.val();
+        var sms_captcha = smsCaptchaInput.val();
+
+        xfzajax.post({
+            'url': '/account/register/',
+            'data': {
+                'telephone': telephone,
+                'username': username,
+                'img_captcha': img_captcha,
+                'password1': password1,
+                'password2': password2,
+                'sms_captcha': sms_captcha
+            },
+            'success': function (result) {
+                window.location.reload();
+            }
+        });
     });
 };
 
+
 $(function () {
     var auth = new Auth();
-    var frontBase = new FrontBase();
     auth.run();
+});
+
+
+$(function () {
+    var frontBase = new FrontBase();
     frontBase.run();
 });

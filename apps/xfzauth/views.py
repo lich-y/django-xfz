@@ -27,7 +27,7 @@ def login_view(request):
                     request.session.set_expiry(None)
                 else:
                     request.session.set_expiry(0)
-                return restful.ok()
+                return restful.ok(message="登录成功")
             else:
                 return restful.unauth(message="您的账号已经被冻结了！")
         else:
@@ -51,11 +51,11 @@ def register(request):
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password1')
         user = User.object.create_user(telephone=telephone, username=username,
-                                       password=password)
-        user.save()
+                                        password=password)
         login(request, user)
         return restful.ok()
     else:
+        print(form.get_errors())
         return restful.params_error(message=form.get_errors())
 
 

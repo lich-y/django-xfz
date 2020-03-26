@@ -1,7 +1,3 @@
-/**
- * Created by hynev on 2018/5/15.
- */
-
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== '') {
@@ -31,24 +27,20 @@ var xfzajax = {
     'ajax': function (args) {
         var success = args['success'];
         args['success'] = function (result) {
-            if (result['code'] === 200) {
+            if (result['code'] == 200) {
                 if (success) {
                     success(result);
                 }
             } else {
                 var messageObject = result['message'];
                 if (typeof messageObject == 'string' || messageObject.constructor == String) {
-                    window.messageBox.showError(messageObject);
+                    window.messageBox.show(messageObject);
                 } else {
-                    // {"password":['密码最大长度不能超过20为！','xxx'],"telephone":['xx','x']}
                     for (var key in messageObject) {
                         var messages = messageObject[key];
                         var message = messages[0];
-                        window.messageBox.showError(message);
+                        window.messageBox.show(message);
                     }
-                }
-                if (success) {
-                    success(result);
                 }
             }
         };

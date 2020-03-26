@@ -5,9 +5,9 @@ var uglify = require("gulp-uglify");
 var cache = require("gulp-cache");
 var imagemin = require("gulp-imagemin");
 var bs = require("browser-sync").create();
-var sass = require("gulp-sass")
-var util = require("gulp-util")
-var sourcemaps = require("gulp-sourcemaps")
+var sass = require("gulp-sass");
+var util = require("gulp-util");
+var sourcemaps = require("gulp-sourcemaps");
 
 var path = {
     'html': './templates/**/',
@@ -17,7 +17,7 @@ var path = {
     'css_dist': './dist/css/',
     'js_dist': './dist/js/',
     'images_dist': './dist/images/'
-}
+};
 
 // 定义一个html文件处理任务
 gulp.task("html", function () {

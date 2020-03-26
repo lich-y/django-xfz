@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,15 +8,17 @@
     <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
     <script src="{% static 'js/message.min.js' %}"></script>
     <script src="{% static 'js/xfzajax.min.js' %}"></script>
+    <script src="{% static 'js/front_base.min.js' %}"></script>
+    <script></script>
     <link rel="stylesheet" href="//at.alicdn.com/t/font_1688767_xbonih3c24.css">
     <link rel="stylesheet" href="{% static 'css/common/auth.min.css' %}">
-    <script src="{% static 'js/front_base.min.js' %}"></script>
     {% block head %}{% endblock %}
 </head>
 
 <body>
 <header class="header">
     <div class="container">
+        {% csrf_token %}
         <div class="logo-box">
             <a href="./"></a>
         </div>
@@ -28,15 +31,17 @@
         <div class="auth-box">
             <i class="icon-person iconfont"></i>
             {% if user.is_authenticated %}
-            <a href="#" class="authenticated-box">{{ user.username }}</a>
-            <div class="user-more-box">
-                <i class="triangle"></i>
-                <a href="#">管理系统</a>
-                <a href="{% url 'xfzauth:logout' %}">退出登录</a>
-            </div>
+                <a href="#" class="authenticated-box">{{ user.username }}</a>
+                <div class="user-more-box">
+                    <i class="triangle"></i>
+                    {% if user.is_staff %}
+                        <a href="{% url 'cms:index' %}">管理系统</a>
+                    {% endif %}
+                    <a href="{% url 'xfzauth:logout' %}">退出登录</a>
+                </div>
             {% else %}
-            <a href=" #" class="signin-btn">登录</a> /
-            <a href="#" class="signup-btn">注册</a>
+                <a href=" #" class="signin-btn">登录</a> /
+                <a href="#" class="signup-btn">注册</a>
             {% endif %}
         </div>
     </div>
@@ -150,11 +155,11 @@
                             </div>
                         </div>
                         <div class="input-group">
-                            <input type="text" name="password1"
+                            <input type="password" name="password1"
                                    class="form-control" placeholder="密码">
                         </div>
                         <div class="input-group">
-                            <input type="text" name="password2"
+                            <input type="password" name="password2"
                                    class="form-control" placeholder="确认密码">
                         </div>
                         <div class="input-group">
