@@ -2,33 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="798d28fb-5895-4137-be21-aed9b63653ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/front/templates/cms/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/templates/cms/news_category.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/templates/cms/write_news.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/cms/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/xfz.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/xfz.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/cms/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/cms/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/cms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/cms/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/news/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/news/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cms/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/js/news_category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cms/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cms/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cms/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cms/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cms/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cms/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/dist/css/common/header.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/dist/css/common/header.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/dist/css/course/course_detail.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/dist/css/course/course_detail.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/dist/css/course/course_index.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/dist/css/course/course_index.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/dist/css/news/index.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/dist/css/news/index.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/dist/css/news/news_detail.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/dist/css/news/news_detail.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/dist/css/payinfo/payinfo.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/dist/css/payinfo/payinfo.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/dist/css/search/search.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/front/dist/css/search/search.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/dist/js/xfzajax.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/dist/js/xfzajax.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/css/common/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/css/common/header.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/templates/base/front_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/templates/base/front_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/templates/cms/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/templates/cms/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/xfz/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/xfz/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/dist/js/news_category.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/dist/js/news_category.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/js/news_category.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/js/news_category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/templates/cms/news_category.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/templates/cms/news_category.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,17 +24,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/templates/cms/news_category.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+            <state relative-caret-position="380">
+              <caret line="43" column="82" selection-start-line="43" selection-start-column="82" selection-end-line="43" selection-end-column="82" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/cms/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+            <state relative-caret-position="294">
+              <caret line="56" column="24" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="24" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -63,19 +43,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front/src/js/news_category.js">
+        <entry file="file://$PROJECT_DIR$/apps/cms/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+            <state relative-caret-position="95">
+              <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+              <folding>
+                <element signature="e#19#51#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/cms/urls.py">
+        <entry file="file://$PROJECT_DIR$/apps/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+            <state relative-caret-position="57">
+              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front/src/js/news_category.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="237">
+              <caret line="80" column="13" lean-forward="true" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -92,8 +84,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/src/js/xfzalert.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="98" column="27" selection-start-line="98" selection-start-column="27" selection-end-line="98" selection-end-column="27" />
+            <state relative-caret-position="-63">
+              <caret line="94" column="4" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -105,6 +97,7 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -153,18 +146,20 @@
         <option value="$PROJECT_DIR$/front/src/css/common/header.scss" />
         <option value="$PROJECT_DIR$/apps/news/models.py" />
         <option value="$PROJECT_DIR$/apps/news/views.py" />
-        <option value="$PROJECT_DIR$/apps/cms/views.py" />
-        <option value="$PROJECT_DIR$/front/src/js/news_category.js" />
-        <option value="$PROJECT_DIR$/apps/cms/urls.py" />
         <option value="$PROJECT_DIR$/front/templates/cms/base.html" />
+        <option value="$PROJECT_DIR$/apps/cms/forms.py" />
+        <option value="$PROJECT_DIR$/apps/cms/views.py" />
         <option value="$PROJECT_DIR$/front/templates/cms/news_category.html" />
+        <option value="$PROJECT_DIR$/apps/cms/urls.py" />
+        <option value="$PROJECT_DIR$/front/src/js/news_category.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="951" />
+    <option name="y" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -294,7 +289,7 @@
       <workItem from="1585279327337" duration="965000" />
       <workItem from="1585280668206" duration="89000" />
       <workItem from="1585280773718" duration="5127000" />
-      <workItem from="1585364687337" duration="20134000" />
+      <workItem from="1585364687337" duration="23103000" />
     </task>
     <task id="LOCAL-00001" summary="register">
       <created>1585105631409</created>
@@ -317,11 +312,18 @@
       <option name="project" value="LOCAL" />
       <updated>1585273187295</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="cms">
+      <created>1585415090878</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1585415090878</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54895000" />
+    <option name="totallyTimeSpent" value="57864000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
@@ -333,10 +335,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="762" y="0" width="781" height="830" extended-state="0" />
+    <frame x="761" y="-7" width="782" height="838" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.3195021" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25552487" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="manage.py@xfz" />
@@ -351,7 +353,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50067025" side_tool="true" weight="0.2181303" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49932975" visible="true" weight="0.2191977" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49932975" visible="true" weight="0.21671388" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -406,13 +408,6 @@
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="27" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -591,20 +586,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/js/xfzalert.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="98" column="27" selection-start-line="98" selection-start-column="27" selection-end-line="98" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/cms/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/templates/cms/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -612,27 +593,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/src/js/news_category.js">
+    <entry file="file://$PROJECT_DIR$/front/src/js/xfzalert.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="51" selection-start-line="18" selection-start-column="51" selection-end-line="18" selection-end-column="51" />
+        <state relative-caret-position="-63">
+          <caret line="94" column="4" selection-start-line="94" selection-start-column="4" selection-end-line="94" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/cms/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="45" selection-start-line="5" selection-start-column="45" selection-end-line="5" selection-end-column="45" />
+          <folding>
+            <element signature="e#19#51#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front/templates/cms/news_category.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+        <state relative-caret-position="380">
+          <caret line="43" column="82" selection-start-line="43" selection-start-column="82" selection-end-line="43" selection-end-column="82" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/cms/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="35" column="9" lean-forward="true" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+        <state relative-caret-position="294">
+          <caret line="56" column="24" selection-start-line="56" selection-start-column="4" selection-end-line="56" selection-end-column="24" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/cms/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/src/js/news_category.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="80" column="13" lean-forward="true" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
         </state>
       </provider>
     </entry>
