@@ -16,4 +16,6 @@ urlpatterns = [
          name='edit_news_category'),
     path('delete_news_category/', views.delete_news_category,
          name='delete_news_category'),
+    path('upload_file/', views.upload_file,
+         name='upload_file'),
 ]

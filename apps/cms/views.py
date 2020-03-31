@@ -15,7 +15,11 @@ def index(request):
 
 class WriteNewsView(View):
     def get(self, request):
-        return render(request, 'cms/write_news.html')
+        categories = NewsCategory.objects.all()
+        context = {
+            'categories': categories
+        }
+        return render(request, 'cms/write_news.html', context=context)
 
 
 @require_GET
@@ -61,3 +65,13 @@ def delete_news_category(request):
         return restful.ok()
     except:
         return restful.unauth(message="该分类不存在")
+
+
+@require_POST
+def upload_file(request):
+    file = request.FILES.get('file')
+    name = file.name
+    with open(name, 'wb') as fp:
+        for chunk in file.chunks():
+            fp.write(chunk)
+    return restful.ok()

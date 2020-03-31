@@ -25,6 +25,8 @@ NewsCategory.prototype.listenAddCategoryEvent = function () {
                     'success': function (result) {
                         if (result['code'] == 200) {
                             window.location.reload();
+                        } else {
+                            xfzalert.close();
                         }
                     }
                 })
@@ -55,6 +57,8 @@ NewsCategory.prototype.listenEditCategoryEvent = function () {
                     'success': function (result) {
                         if (result['code'] == 200) {
                             window.location.reload();
+                        } else {
+                            xfzalert.close();
                         }
                     }
                 })
@@ -69,17 +73,25 @@ NewsCategory.prototype.listenDeleteCategoryEvent = function () {
         var currentBtn = $(this);
         var tr = currentBtn.parent().parent();
         var pk = tr.attr('data-pk');
-        xfzajax.post({
-            'url': '/cms/delete_news_category/',
-            'data': {
-                'pk': pk
-            },
-            'success': function (result) {
-                if (result['code'] == 200) {
-                    window.location.reload();
-                }
+        xfzalert.alertConfirm({
+            'title': '您确定要删除这个分类吗？',
+            'confirmCallback': function () {
+                xfzajax.post({
+                    'url': '/cms/delete_news_category/',
+                    'data': {
+                        'pk': pk
+                    },
+                    'success': function (result) {
+                        if (result['code'] == 200) {
+                            window.location.reload();
+                        } else {
+                            xfzalert.close();
+                        }
+                    }
+                });
             }
         });
+
     })
 };
 
