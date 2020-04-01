@@ -5,6 +5,8 @@ from django.views.decorators.http import require_GET, require_POST
 from apps.news.models import NewsCategory
 from utils import restful
 from .forms import EditNewsCategoryForm
+import os
+from django.conf import settings
 
 
 # Create your views here.
@@ -71,7 +73,8 @@ def delete_news_category(request):
 def upload_file(request):
     file = request.FILES.get('file')
     name = file.name
-    with open(name, 'wb') as fp:
+    with open(os.path.join(settings.MEDIA_ROOT, name), 'wb') as fp:
         for chunk in file.chunks():
             fp.write(chunk)
-    return restful.ok()
+    url = request.build_absolute_uri(settings.MEDIA_URL + name)
+    return restful.ok(data={'url': url})
